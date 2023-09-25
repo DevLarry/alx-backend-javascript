@@ -1,5 +1,5 @@
+import createIteratorObject from './100-createIteratorObject';
+
 export default function iterateThroughObject(reportWithIterator) {
-  if (!reportWithIterator) {
-    console.log('Placeholder');
-  }
+  return createIteratorObject(reportWithIterator).join(' | ');
 }
