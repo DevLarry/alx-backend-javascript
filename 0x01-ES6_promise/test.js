@@ -1,28 +1,25 @@
-// const { uploadPhoto, createUser } = require('./utils');
 
-function uploadPhoto() {
-  return Promise.resolve({
-    status: 200,
-    body: 'photo-profile-1',
-  });
+function loadBalancer(chinaDownload, USDownload) {
+    return Promise.race([chinaDownload, USDownload]);
+}
+const ukSuccess = 'Downloading from UK is faster';
+const frSuccess = 'Downloading from FR is faster';
+
+const promiseUK = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 100, ukSuccess);
+});
+
+const promiseUKSlow = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 400, ukSuccess);
+});
+
+const promiseFR = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 200, frSuccess);
+});
+
+const test = async () => {
+    console.log(await loadBalancer(promiseUK, promiseFR));
+    console.log(await loadBalancer(promiseUKSlow, promiseFR));
 }
 
-function createUser() {
-  return Promise.resolve({
-    firstName: 'Guillaume',
-    lastName: 'Salva',
-  });
-}
-
-function handleProfileSignup() {
-  return Promise.all([uploadPhoto(), createUser()])
-    .then((data) => {
-      console.log(data[0].body, data[1].firstName, data[1].lastName);
-    })
-    .catch(() => {
-      console.log('Signup system offline');
-    });
-}
-
-handleProfileSignup();
-console.log('Hi');
+test();
