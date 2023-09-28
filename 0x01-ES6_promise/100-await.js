@@ -7,5 +7,5 @@ export default async function asyncUploadUser() {
   const photo = await uploadPhoto()
     .then((res) => res)
     .catch(() => null);
-  return { photo, user };
+  return { photo: user ? photo : null, user: photo ? user : null };
 }
