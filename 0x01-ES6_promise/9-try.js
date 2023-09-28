@@ -3,6 +3,6 @@ export default function guardrail(mathFunction) {
   try {
     queue[0] = mathFunction();
   } catch (e) {
-    queue[0] = e.message;
+    queue[0] = `Error: ${e.message}`;
   }
 }
