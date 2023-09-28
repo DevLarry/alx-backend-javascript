@@ -5,4 +5,5 @@ export default function guardrail(mathFunction) {
   } catch (e) {
     queue[0] = `Error: ${e.message}`;
   }
+  return queue;
 }
