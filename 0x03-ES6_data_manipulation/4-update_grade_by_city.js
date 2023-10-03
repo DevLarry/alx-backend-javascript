@@ -1,4 +1,4 @@
-export default function getStudentsByLocation(list, city, newGrades) {
+export default function updateStudentGradeByCity(list, city, newGrades) {
   if (Array.isArray(list) && Array.isArray(newGrades)) {
     return list
       .filter((e) => e.location === city)
