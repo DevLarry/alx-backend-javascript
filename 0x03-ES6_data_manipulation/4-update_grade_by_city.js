@@ -5,7 +5,7 @@ export default function getStudentsByLocation(list, city, newGrades) {
       .map((e) => {
         return {
           ...e,
-          grade: newGrades.find((i) => i.studentId == e.id)?.grade || 'N/A',
+          grade: newGrades.find((i) => i.studentId === e.id)?.grade || 'N/A',
         };
       });
   return [];
