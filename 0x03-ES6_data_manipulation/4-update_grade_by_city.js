@@ -3,10 +3,13 @@ export default function getStudentsByLocation(list, city, newGrades) {
     return list
       .filter((e) => e.location === city)
       .map((e) => {
+        let g = newGrades.reduce((i) => i.studentId === e.id);
+        if (g.length) {
+          g = g[0].grade
+        }
         return {
           ...e,
-          grade: newGrades
-            .find((i) => i.studentId === e.id).grade || 'N/A'
+          grade: g || 'N/A',
         };
       });
   }
