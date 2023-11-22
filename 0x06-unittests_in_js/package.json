@@ -10,11 +10,16 @@
     "type": "git",
     "url": "git+https://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@github.com/DevLarry/alx-backend-javascript.git"
   },
-  "keywords": ["asert"],
+  "keywords": [
+    "asert"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DevLarry/alx-backend-javascript/issues"
   },
-  "homepage": "https://github.com/DevLarry/alx-backend-javascript#readme"
+  "homepage": "https://github.com/DevLarry/alx-backend-javascript#readme",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
 }
